@@ -26,4 +26,15 @@ class CityWeather {
       iconUrl: j['iconUrl'],
     );
   }
+
+  factory CityWeather.fromWeatherApi(Map<String, dynamic> json) {
+    final location = json['location'];
+    final current = json['current'];
+    return CityWeather(
+      city: location['name'] as String,
+      tempC: (current['temp_c'] as num).toDouble(),
+      condition: (current['condition']?['text'] ?? '') as String,
+      iconUrl: 'https:${current['condition']?['icon'] ?? ''}',
+    );
+  }
 }

@@ -43,9 +43,7 @@ class WeatherService {
   }
 
   Future<Map<String, dynamic>> getForecastedWeather(
-    String city, {
-    int days = 3,
-  }) async {
+    String city, {int days = 5}) async {
 
     final url = Uri.parse(
       '$baseUrl/forecast.json?key=$apiKey&q=${Uri.encodeComponent(city)}&days=$days&aqi=no&alerts=no',
