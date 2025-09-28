@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:forecast_weather/src/data/models/city_weather_model.dart';
 import 'package:forecast_weather/src/presentation/providers/city_weather_provider.dart';
+import 'package:forecast_weather/src/presentation/screens/forecast_screen.dart';
 import 'package:provider/provider.dart';
 
 class CityCardWidget extends StatelessWidget {
@@ -47,18 +48,6 @@ class CityCardWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              IconButton(
-                icon: const Icon(Icons.refresh),
-                onPressed: () async {
-                  try {
-                    await provider.addCity(cityWeather.city);
-                  } catch (_) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Refresh failed!')),
-                    );
-                  }
-                },
-              ),
             ],
           ),
         ),
@@ -67,6 +56,8 @@ class CityCardWidget extends StatelessWidget {
   }
 
   void _openForecast(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => Container()));
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ForecastScreen(city: cityWeather.city),
+    ));
   }
 }
