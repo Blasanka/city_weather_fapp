@@ -12,8 +12,8 @@ class CityWeatherProvider extends ChangeNotifier {
   AppError _error = AppError(message: '');
   AppError get error => _error;
 
-  CityWeatherProvider({required WeatherRepository repositroy}) {
-    weatherRepository = repositroy;
+  CityWeatherProvider({required WeatherRepository repository}) {
+    weatherRepository = repository;
     _loadCities();
   }
 

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<CityWeatherProvider>(
           create: (ctx) => CityWeatherProvider(
-            repositroy: getIt.get<WeatherRepository>(),
+            repository: getIt.get<WeatherRepository>(),
           ),
         ),
       ],

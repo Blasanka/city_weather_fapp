@@ -18,7 +18,7 @@ void main() {
     mockWeatherRepository = MockWeatherRepository();
     GetIt.I.reset();
     GetIt.I.registerSingleton<WeatherRepository>(mockWeatherRepository);
-    cityWeatherProvider = CityWeatherProvider(repositroy: mockWeatherRepository);
+    cityWeatherProvider = CityWeatherProvider(repository: mockWeatherRepository);
   });
 
   tearDown(() {
@@ -41,7 +41,9 @@ void main() {
   });
 
   testWidgets('HomeScreen displays a list of cities when cities list is not empty', (WidgetTester tester) async {
-    final cities = [      CityWeather(city: 'London', tempC: 15.0, condition: 'Sunny', iconUrl: ''),    ];
+    final cities = [
+      CityWeather(city: 'London', tempC: 15.0, condition: 'Sunny', iconUrl: ''),
+    ];
     when(mockWeatherRepository.getSavedCities()).thenAnswer((_) async => cities);
 
     await tester.pumpWidget(

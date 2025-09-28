@@ -29,7 +29,7 @@ void main() {
     mockSharedPreferences = MockSharedPreferences();
     GetIt.I.registerSingleton<WeatherRepository>(mockWeatherRepository);
     GetIt.I.registerSingleton<SharedPreferences>(mockSharedPreferences);
-    provider = CityWeatherProvider(repositroy: mockWeatherRepository);
+    provider = CityWeatherProvider(repository: mockWeatherRepository);
   });
 
   tearDown(() {
