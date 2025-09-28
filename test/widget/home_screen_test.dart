@@ -18,7 +18,7 @@ void main() {
     mockWeatherRepository = MockWeatherRepository();
     GetIt.I.reset();
     GetIt.I.registerSingleton<WeatherRepository>(mockWeatherRepository);
-    cityWeatherProvider = CityWeatherProvider(repository: mockWeatherRepository);
+    cityWeatherProvider = CityWeatherProvider(repositroy: mockWeatherRepository);
   });
 
   tearDown(() {
