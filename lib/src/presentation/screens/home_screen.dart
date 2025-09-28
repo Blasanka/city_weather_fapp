@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forecast_weather/src/presentation/providers/city_weather_provider.dart';
+import 'package:forecast_weather/src/presentation/widgets/add_city_dialog.dart';
 import 'package:forecast_weather/src/presentation/widgets/city_card_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Weather - Cities'),
+        title: const Text('Current Weather'),
         actions: [
           IconButton(
             onPressed: () => _openAddDialog(context),
@@ -62,14 +63,14 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _openAddDialog(context),
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => _openAddDialog(context),
+      //   child: const Icon(Icons.add),
+      // ),
     );
   }
 
   void _openAddDialog(BuildContext context) {
-    showDialog(context: context, builder: (_) => Dialog());
+    showDialog(context: context, builder: (_) => AddCityDialog());
   }
 }

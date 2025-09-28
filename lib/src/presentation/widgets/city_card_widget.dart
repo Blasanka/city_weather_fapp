@@ -15,7 +15,7 @@ class CityCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.read<CityWeatherProvider>();
+    final provider = context.read<CityWeatherProvider>();
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: InkWell(
@@ -51,7 +51,7 @@ class CityCardWidget extends StatelessWidget {
                 icon: const Icon(Icons.refresh),
                 onPressed: () async {
                   try {
-                    await store.addCity(cityWeather.city);
+                    await provider.addCity(cityWeather.city);
                   } catch (_) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Refresh failed!')),
